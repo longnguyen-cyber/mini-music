@@ -12,6 +12,14 @@ const playRepeat = $('.play-repeat')
 const musicName = $('.music-name')
 const musicImg = $('.music-thumb img')
 const playInfinite = $('.play-infinite')
+const playRandomSong = $('.play-random')
+
+let isPlaying = true
+let indexSong = 0
+let timer
+let repeatCount = 0
+let repeatSong = false
+let infiniteSong = false
 const listSong = [
   {
     id: 1,
@@ -33,12 +41,7 @@ const listSong = [
     image: 'https://picsum.photos/200/200'
   }
 ]
-let isPlaying = true
-let indexSong = 0
-let timer
-let repeatCount = 0
-let repeatSong = false
-let infiniteSong = false
+
 play.addEventListener('click', () => playPause())
 const playPause = () => {
   if (isPlaying) {
@@ -73,6 +76,18 @@ playInfinite.addEventListener('click', () => {
     infiniteSong = true
     playInfinite.style.backgroundColor = '#ff0000'
   }
+})
+//create function random number
+const randomNumber = () => {
+  return Math.floor(Math.random() * (listSong.length - 1 - 0 + 1)) + 0
+}
+playRandomSong.addEventListener('click', () => {
+  init(randomNumber())
+  isPlaying = true
+  setTimeout(() => {
+    playPause()
+  }, 500)
+  play.innerHTML = `<ion-icon name="play" class="play-icon"></ion-icon>`
 })
 
 nextSong.addEventListener('click', () => changeSong(1))
@@ -130,7 +145,6 @@ const formatTimer = (time) => {
     seconds < 10 ? '0' + seconds : seconds
   }`
 }
-displayTimer()
 
 rangeBar.addEventListener('change', () => {
   song.currentTime = rangeBar.value
@@ -141,4 +155,5 @@ const init = (indexSong) => {
   musicImg.setAttribute('src', listSong[indexSong].image)
   musicName.textContent = listSong[indexSong].title
 }
+displayTimer()
 init(indexSong)
