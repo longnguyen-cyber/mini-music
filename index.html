@@ -5,11 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="css/app.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
@@ -20,30 +36,259 @@
     ></script>
   </head>
   <body>
-    <div class="music">
-      <div class="music-thumb">
-        <img src="https://source.unsplash.com/random" alt="" />
+    <div class="app">
+      <div class="slide-container">
+        <ul class="menu-item">
+          <li><ion-icon name="home-outline"></ion-icon>Home</li>
+          <li><ion-icon name="browsers-outline"></ion-icon>Browse</li>
+          <li><ion-icon name="albums-outline"></ion-icon>Album</li>
+          <li><ion-icon name="person-outline"></ion-icon>Artists</li>
+          <li><ion-icon name="videocam-outline"></ion-icon>Videos</li>
+        </ul>
+        <div class="my-music">
+          <h3>MY MUSIC</h3>
+          <ul>
+            <li><ion-icon name="alarm-outline"></ion-icon>Recently played</li>
+            <li><ion-icon name="document-outline"></ion-icon>Local Files</li>
+          </ul>
+        </div>
+        <div class="my-playlist">
+          <h3>PLAYLIST</h3>
+          <ul>
+            <li>General Playlist</li>
+            <li>Ease up beats</li>
+            <li>Mood swings</li>
+          </ul>
+        </div>
       </div>
-      <h3 class="music-name">Beautiful in white</h3>
-      <input type="range" name="range" id="range" class="range" />
-      <audio src="./music/music1.mp3" id="song"></audio>
-      <div class="timer">
-        <div class="remaining">-3:10</div>
-        <div class="duration">2:10</div>
-      </div>
-      <div class="controls">
-        <ion-icon name="shuffle-outline" class="play-random"></ion-icon>
-        <ion-icon name="infinite-outline" class="play-infinite"></ion-icon>
-        <ion-icon name="play-back" class="play-back"></ion-icon>
-        <div class="play">
-          <div class="player-inner">
-            <ion-icon name="play" class="play-icon"></ion-icon>
+      <div class="content-container">
+        <div class="header">
+          <div class="header-search">
+            <ion-icon name="logo-apple-ar"></ion-icon>
+            <form>
+              <ion-icon name="search-outline" class="search-icon"></ion-icon>
+              <input type="text" placeholder="Search" />
+            </form>
+          </div>
+          <div class="header-info">
+            <div class="account">
+              <div class="img">
+                <img
+                  src="https://source.unsplash.com/random"
+                  alt=""
+                  height="48"
+                  width="48"
+                />
+              </div>
+              <span>kuga</span>
+              <ion-icon name="chevron-down-circle-outline"></ion-icon>
+            </div>
+            <div class="setting">
+              <ion-icon name="notifications-outline"></ion-icon>
+              <ion-icon name="settings-outline"></ion-icon>
+            </div>
           </div>
         </div>
-        <ion-icon name="play-forward" class="play-forward"></ion-icon>
-        <ion-icon name="repeat-outline" class="play-repeat"></ion-icon>
+        <div class="content-wrapper">
+          <section class="artists">
+            <h3 class="artists-title">Top Artists - <span>Top 50</span></h3>
+            <div class="top-artists">
+              <div style="width: 350px !important">
+                <img src="https://picsum.photos/230/200" alt="" />
+                <h4 class="slide-title">long</h4>
+                <span class="slide-description"> Post Malone </span>
+              </div>
+              <div style="width: 350px !important">
+                <img src="https://picsum.photos/230/200" alt="" />
+                <h4 class="slide-title">long</h4>
+                <span class="slide-description"> Post Malone </span>
+              </div>
+              <div style="width: 350px !important">
+                <img src="https://picsum.photos/230/200" alt="" />
+                <h4 class="slide-title">long</h4>
+                <span class="slide-description"> Post Malone </span>
+              </div>
+              <div style="width: 350px !important">
+                <img src="https://picsum.photos/230/200" alt="" />
+                <h4 class="slide-title">long</h4>
+                <span class="slide-description"> Post Malone </span>
+              </div>
+              <div style="width: 350px !important">
+                <img src="https://picsum.photos/230/200" alt="" />
+                <h4 class="slide-title">long</h4>
+                <span class="slide-description"> Post Malone </span>
+              </div>
+              <div style="width: 350px !important">
+                <img src="https://picsum.photos/230/200" alt="" />
+                <h4 class="slide-title">long</h4>
+                <span class="slide-description"> Post Malone </span>
+              </div>
+              <div style="width: 350px !important">
+                <img src="https://picsum.photos/230/200" alt="" />
+                <h4 class="slide-title">long</h4>
+                <span class="slide-description"> Post Malone </span>
+              </div>
+            </div>
+          </section>
+          <div class="music">
+            <section class="now">
+              <h2>Now Playing</h2>
+              <div class="playing">
+                <p>Next - <span>Rockstart</span></p>
+                <div class="music-thumb">
+                  <img src="https://source.unsplash.com/random" alt="" />
+                </div>
+                <h3 class="music-name">Beautiful in white</h3>
+                <input type="range" name="range" id="range" class="range" />
+                <audio src="./music/music1.mp3" id="song"></audio>
+                <div class="timer">
+                  <div class="remaining">-3:10</div>
+                  <div class="duration">2:10</div>
+                </div>
+                <div class="controls">
+                  <ion-icon
+                    name="shuffle-outline"
+                    class="play-random"
+                  ></ion-icon>
+                  <!-- <ion-icon
+                    name="infinite-outline"
+                    class="play-infinite"
+                  ></ion-icon> -->
+                  <ion-icon name="play-back" class="play-back"></ion-icon>
+                  <div class="play">
+                    <div class="player-inner">
+                      <ion-icon name="play" class="play-icon"></ion-icon>
+                    </div>
+                  </div>
+                  <ion-icon name="play-forward" class="play-forward"></ion-icon>
+                  <ion-icon
+                    name="repeat-outline"
+                    class="play-repeat"
+                  ></ion-icon>
+                </div>
+              </div>
+            </section>
+            <section class="mostly">
+              <div class="mostly-title">
+                <h2>Mostly Played</h2>
+                <p>
+                  55 songs on the list
+                  <ion-icon name="download-outline"></ion-icon>
+                </p>
+              </div>
+              <ul class="list-music">
+                <li class="music-item">
+                  <span class="music-item__id">01</span>
+                  <img
+                    src="https://picsum.photos/200/200"
+                    alt=""
+                    height="48"
+                    width="48"
+                    class="music-item__thumb"
+                  />
+                  <ion-icon
+                    name="caret-forward-outline"
+                    class="music-item__icon"
+                  ></ion-icon>
+                  <h4 class="music-item__name">Rockstart</h4>
+                  <h4 class="music-item__single">Post malone</h4>
+                  <span class="music-item__time">4:31</span>
+                </li>
+                <li class="music-item">
+                  <span class="music-item__id">01</span>
+                  <img
+                    src="https://picsum.photos/200/200"
+                    alt=""
+                    height="48"
+                    width="48"
+                    class="music-item__thumb"
+                  />
+                  <ion-icon
+                    name="caret-forward-outline"
+                    class="music-item__icon"
+                  ></ion-icon>
+                  <h4 class="music-item__name">Rockstart</h4>
+                  <h4 class="music-item__single">Post malone</h4>
+                  <span class="music-item__time">4:31</span>
+                </li>
+                <li class="music-item">
+                  <span class="music-item__id">01</span>
+                  <img
+                    src="https://picsum.photos/200/200"
+                    alt=""
+                    height="48"
+                    width="48"
+                    class="music-item__thumb"
+                  />
+                  <ion-icon
+                    name="caret-forward-outline"
+                    class="music-item__icon"
+                  ></ion-icon>
+                  <h4 class="music-item__name">Rockstart</h4>
+                  <h4 class="music-item__single">Post malone</h4>
+                  <span class="music-item__time">4:31</span>
+                </li>
+                <li class="music-item">
+                  <span class="music-item__id">01</span>
+                  <img
+                    src="https://picsum.photos/200/200"
+                    alt=""
+                    height="48"
+                    width="48"
+                    class="music-item__thumb"
+                  />
+                  <ion-icon
+                    name="caret-forward-outline"
+                    class="music-item__icon"
+                  ></ion-icon>
+                  <h4 class="music-item__name">Rockstart</h4>
+                  <h4 class="music-item__single">Post malone</h4>
+                  <span class="music-item__time">4:31</span>
+                </li>
+                <li class="music-item">
+                  <span class="music-item__id">01</span>
+                  <img
+                    src="https://picsum.photos/200/200"
+                    alt=""
+                    height="48"
+                    width="48"
+                    class="music-item__thumb"
+                  />
+                  <ion-icon
+                    name="caret-forward-outline"
+                    class="music-item__icon"
+                  ></ion-icon>
+                  <h4 class="music-item__name">Rockstart</h4>
+                  <h4 class="music-item__single">Post malone</h4>
+                  <span class="music-item__time">4:31</span>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
       </div>
     </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('.top-artists').slick({
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          centerMode: true,
+          centerPadding: '100px',
+          autoplay: true
+        })
+      })
+    </script>
     <script src="./app.js"></script>
   </body>
 </html>

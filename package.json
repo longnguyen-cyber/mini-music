@@ -1,0 +1,14 @@
+{
+  "name": "music",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/longnguyen-cyber/mini-music.git",
+  "author": "longnguyen-cyber <longnguyendev2020@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node-sass sass/main.scss css/app.css -w"
+  },
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  }
+}
