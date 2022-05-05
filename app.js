@@ -1,18 +1,18 @@
-const $ = document.querySelector.bind(document)
+const $1 = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
-const play = $('.player-inner')
-const song = $('#song')
-const nextSong = $('.play-forward')
-const prevSong = $('.play-back')
-const rangeBar = $('.range')
-const durationTime = $('.duration')
-const remainingTime = $('.remaining')
-const musicThumbnail = $('.music-thumb')
-const playRepeat = $('.play-repeat')
-const musicName = $('.music-name')
-const musicImg = $('.music-thumb img')
-const playInfinite = $('.play-infinite')
-const playRandomSong = $('.play-random')
+const play = $1('.player-inner')
+const song = $1('#song')
+const nextSong = $1('.play-forward')
+const prevSong = $1('.play-back')
+const rangeBar = $1('.range')
+const durationTime = $1('.duration')
+const remainingTime = $1('.remaining')
+const musicThumbnail = $1('.music-thumb')
+const playRepeat = $1('.play-repeat')
+const musicName = $1('.music-name')
+const musicImg = $1('.music-thumb img')
+const playInfinite = $1('.play-infinite')
+const playRandomSong = $1('.play-random')
 
 let isPlaying = true
 let indexSong = 0
@@ -68,15 +68,15 @@ playRepeat.addEventListener('click', () => {
   }
 })
 
-playInfinite.addEventListener('click', () => {
-  if (infiniteSong) {
-    infiniteSong = false
-    playInfinite.removeAttribute('style')
-  } else {
-    infiniteSong = true
-    playInfinite.style.backgroundColor = '#ff0000'
-  }
-})
+// playInfinite.addEventListener('click', () => {
+//   if (infiniteSong) {
+//     infiniteSong = false
+//     playInfinite.removeAttribute('style')
+//   } else {
+//     infiniteSong = true
+//     playInfinite.style.backgroundColor = '#ff0000'
+//   }
+// })
 //create function random number
 const randomNumber = () => {
   return Math.floor(Math.random() * (listSong.length - 1 - 0 + 1)) + 0
