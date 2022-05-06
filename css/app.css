@@ -151,7 +151,7 @@ ul {
           color: #aaa; }
     .app .content-container .content-wrapper .music {
       display: grid;
-      grid-template-columns: 2fr 3fr; }
+      grid-template-columns: 1fr 1fr; }
       .app .content-container .content-wrapper .music .playing {
         max-width: 500px;
         border-radius: 12px;

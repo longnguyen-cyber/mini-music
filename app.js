@@ -10,9 +10,11 @@ const remainingTime = $1('.remaining')
 const musicThumbnail = $1('.music-thumb')
 const playRepeat = $1('.play-repeat')
 const musicName = $1('.music-name')
+const nextMusic = $1('.next-music')
 const musicImg = $1('.music-thumb img')
 const playInfinite = $1('.play-infinite')
 const playRandomSong = $1('.play-random')
+const listMusic = $1('.list-music')
 
 let isPlaying = true
 let indexSong = 0
@@ -23,22 +25,25 @@ let infiniteSong = false
 const listSong = [
   {
     id: 1,
-    title: 'music 1',
+    name: 'music 1',
     file: 'music1.mp3',
-    image: 'https://picsum.photos/200/200'
+    image: 'https://picsum.photos/200/200',
+    single: 'kuga'
   },
   {
     id: 2,
-    title: 'music 2',
+    name: 'music 2',
     file: 'music2.mp3',
-    image: 'https://picsum.photos/200/200'
+    image: 'https://picsum.photos/200/200',
+    single: 'kuga'
   },
 
   {
     id: 3,
-    title: 'music 3',
+    name: 'music 3',
     file: 'music3.mp3',
-    image: 'https://picsum.photos/200/200'
+    image: 'https://picsum.photos/200/200',
+    single: 'kuga'
   }
 ]
 
@@ -90,7 +95,9 @@ playRandomSong.addEventListener('click', () => {
   play.innerHTML = `<ion-icon name="play" class="play-icon"></ion-icon>`
 })
 
-nextSong.addEventListener('click', () => changeSong(1))
+nextSong.addEventListener('click', () => {
+  changeSong(1)
+})
 prevSong.addEventListener('click', () => changeSong(-1))
 song.addEventListener('ended', () => handleChangeSong())
 const handleChangeSong = () => {
@@ -111,12 +118,18 @@ const changeSong = (dir) => {
     if (indexSong > listSong.length - 1) {
       indexSong = 0
     }
+    const musicItem = listMusic.querySelectorAll('.music-item')
+    musicItem.forEach((musicItem) => musicItem.removeAttribute('style'))
+    musicItem[indexSong].style.backgroundColor = '#ccf5f9'
     isPlaying = true
   } else if (dir === -1) {
     indexSong--
     if (indexSong < 0) {
       indexSong = listSong.length - 1
     }
+    const musicItem = listMusic.querySelectorAll('.music-item')
+    musicItem.forEach((musicItem) => musicItem.removeAttribute('style'))
+    musicItem[indexSong].style.backgroundColor = '#ccf5f9'
     isPlaying = true
   } else if (dir === 0) {
     indexSong = indexSong
@@ -152,8 +165,37 @@ rangeBar.addEventListener('change', () => {
 
 const init = (indexSong) => {
   song.setAttribute('src', `./music/${listSong[indexSong].file}`)
+  if (indexSong >= listSong.length - 1) nextMusic.textContent = listSong[0].name
+  else nextMusic.textContent = listSong[indexSong + 1].name
   musicImg.setAttribute('src', listSong[indexSong].image)
-  musicName.textContent = listSong[indexSong].title
+  musicName.textContent = listSong[indexSong].name
 }
+
+//generate list song
+const musicItems = listSong.map((item) => {
+  return `
+    <li class="music-item">
+      <span class="music-item__id">${item.id}</span>
+      <img
+        src=${item.image}
+        alt=""
+        height="48"
+        width="48"
+        class="music-item__thumb"
+      />
+      <ion-icon
+        name="caret-forward-outline"
+        class="music-item__icon"
+      ></ion-icon>
+      <h4 class="music-item__name">${item.name}</h4>
+      <h4 class="music-item__single">${item.single}</h4>
+      <span class="music-item__time">4:31</span>
+    </li>
+  `
+})
+listMusic.innerHTML += musicItems
+
+const musicItem = listMusic.querySelector('.music-item')
+musicItem.style.backgroundColor = '#ccf5f9'
 displayTimer()
 init(indexSong)
