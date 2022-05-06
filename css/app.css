@@ -251,6 +251,7 @@ ul {
           border-radius: 10px;
           background-color: white;
           padding: 10px;
+          margin-bottom: 20px;
           cursor: pointer; }
           .app .content-container .content-wrapper .music .mostly .list-music .music-item__thumb {
             border-radius: 4px;

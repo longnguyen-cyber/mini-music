@@ -200,16 +200,32 @@ listMusic.innerHTML += renderMusicItem
 const musicItem = listMusic.querySelector('.music-item')
 musicItem.style.backgroundColor = '#ccf5f9'
 
+const playing = (index) => {
+  console.log(index)
+  song.play()
+  isPlaying = false
+  play.innerHTML = `<ion-icon name="pause-circle"></ion-icon>`
+  musicThumbnail.classList.add('is-playing')
+  timer = setInterval(displayTimer, 1000)
+  const musicItem = listMusic.querySelectorAll('.music-item')
+  musicItem.forEach((musicItem) => musicItem.removeAttribute('style'))
+  musicItem[index].style.backgroundColor = '#ccf5f9'
+}
+
 const musicItems = listMusic.querySelectorAll('.music-item')
 musicItems.forEach((musicItem) => {
   musicItem.addEventListener('click', (e) => {
-    const id =
+    const id = parseInt(
       e.target.parentElement.querySelector('.music-item__id').textContent
+    )
     const index = listSong.findIndex((item) => {
-      return item.id == id
+      return item.id === id
     })
-    index > 0 ? changeSong(1) : changeSong(-1)
+    console.log(index)
+    init(id - 1)
+    index > -1 && playing(id - 1)
   })
 })
+
 displayTimer()
 init(indexSong)
