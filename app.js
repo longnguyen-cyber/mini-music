@@ -172,8 +172,9 @@ const init = (indexSong) => {
 }
 
 //generate list song
-const musicItems = listSong.map((item) => {
-  return `
+const renderMusicItem = listSong
+  .map((item) => {
+    return `
     <li class="music-item">
       <span class="music-item__id">${item.id}</span>
       <img
@@ -192,10 +193,23 @@ const musicItems = listSong.map((item) => {
       <span class="music-item__time">4:31</span>
     </li>
   `
-})
-listMusic.innerHTML += musicItems
+  })
+  .join('')
+listMusic.innerHTML += renderMusicItem
 
 const musicItem = listMusic.querySelector('.music-item')
 musicItem.style.backgroundColor = '#ccf5f9'
+
+const musicItems = listMusic.querySelectorAll('.music-item')
+musicItems.forEach((musicItem) => {
+  musicItem.addEventListener('click', (e) => {
+    const id =
+      e.target.parentElement.querySelector('.music-item__id').textContent
+    const index = listSong.findIndex((item) => {
+      return item.id == id
+    })
+    index > 0 ? changeSong(1) : changeSong(-1)
+  })
+})
 displayTimer()
 init(indexSong)
