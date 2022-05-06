@@ -250,7 +250,8 @@ ul {
           margin-bottom: 10px;
           border-radius: 10px;
           background-color: white;
-          padding: 10px; }
+          padding: 10px;
+          cursor: pointer; }
           .app .content-container .content-wrapper .music .mostly .list-music .music-item__thumb {
             border-radius: 4px;
             margin: 0 10px; }
