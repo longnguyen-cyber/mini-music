@@ -42,12 +42,17 @@ h6 {
 ul {
   list-style: none; }
 
+body {
+  background-image: linear-gradient(to bottom, #ffeede, #eedefb); }
+
 .app {
+  background-image: linear-gradient(to bottom, #ffeede, #eedefb);
   padding: 0 !important;
   margin: 0 !important;
   display: grid;
   grid-template-columns: 1fr 4fr; }
   .app .slide-container {
+    background-color: #fff;
     padding: 30px;
     padding-top: 40px; }
     .app .slide-container ul {
@@ -66,7 +71,6 @@ ul {
     .app .slide-container .my-playlist {
       margin-top: 40px; }
   .app .content-container {
-    background-image: linear-gradient(to bottom, #ffeede, #eedefb);
     padding: 0 30px 30px;
     overflow: hidden; }
     .app .content-container .header {
@@ -153,7 +157,7 @@ ul {
       display: grid;
       grid-template-columns: 1fr 1fr; }
       .app .content-container .content-wrapper .music .playing {
-        max-width: 500px;
+        margin-right: 50px;
         border-radius: 12px;
         background-color: white;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -263,3 +267,45 @@ ul {
           .app .content-container .content-wrapper .music .mostly .list-music .music-item__single {
             font-size: 14px;
             color: #aaa; }
+
+@media screen and (max-width: 480px) {
+  .app {
+    display: block; }
+  .slide-container,
+  .header,
+  .artists,
+  .mostly {
+    display: none !important; }
+  .music {
+    display: block !important;
+    position: relative;
+    padding: 10rem 0; }
+    .music .now {
+      padding: 0 !important; }
+      .music .now .playing {
+        margin-right: 0 !important; }
+      .music .now h2 {
+        display: none; }
+      .music .now .music-thumb {
+        margin: 0 auto 80px !important; }
+      .music .now .music-thumb.is-playing {
+        animation: none !important; } }
+
+@media screen and (max-width: 768px) {
+  .app {
+    display: block; }
+  .slide-container,
+  .header,
+  .artists,
+  .mostly {
+    display: none !important; }
+  .music {
+    display: block !important;
+    position: relative;
+    padding: 10rem 0; }
+    .music .now {
+      padding: 0 5rem; }
+      .music .now .music-thumb {
+        margin: 0 auto 80px !important; }
+      .music .now .playing {
+        margin-right: 0 !important; } }
