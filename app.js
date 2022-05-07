@@ -197,11 +197,10 @@ const renderMusicItem = listSong
   .join('')
 listMusic.innerHTML += renderMusicItem
 
-const musicItem = listMusic.querySelector('.music-item')
-musicItem.style.backgroundColor = '#ccf5f9'
+const musicItemDefaut = listMusic.querySelector('.music-item')
+musicItemDefaut.style.backgroundColor = '#ccf5f9'
 
 const playing = (index) => {
-  console.log(index)
   song.play()
   isPlaying = false
   play.innerHTML = `<ion-icon name="pause-circle"></ion-icon>`
@@ -218,10 +217,7 @@ musicItems.forEach((musicItem) => {
     const id = parseInt(
       e.target.parentElement.querySelector('.music-item__id').textContent
     )
-    const index = listSong.findIndex((item) => {
-      return item.id === id
-    })
-    console.log(index)
+    const index = listSong.findIndex((item) => item.id === id)
     init(id - 1)
     index > -1 && playing(id - 1)
   })
